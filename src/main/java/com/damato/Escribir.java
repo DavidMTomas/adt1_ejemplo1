@@ -17,6 +17,8 @@ public class Escribir {
                 System.out.println(i);
             }
 
+            
+
     fw.close();
             System.out.println();
             PrintWriter pw = new PrintWriter(new FileWriter(archivo, true));
