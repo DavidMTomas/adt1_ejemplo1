@@ -49,6 +49,7 @@ public class Ejercicio4 {
 
         String archivoNombre=nombreArchivo.substring(0,indicePunto);
 
+
         String nuevoNombre=archivoNombre+"_2.txt";
 
         File archivoNuevo = new File("src/main/resources/Ejercicios2/"+nuevoNombre);
