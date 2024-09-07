@@ -31,13 +31,30 @@ public class FicherosBinarios {
         crearDirectorio();
         // escribir a fichero primitivo
         escribirFichero();
-
         leerFichero();
 
+
+        escribirFicheroFile();
         leerFichero2();
 
 
 
+
+    }
+
+    private static void escribirFicheroFile() {
+        try {
+            FileOutputStream fos = new FileOutputStream("src/main/resources/ejemplosBinario/ejemplo.dat");
+
+            String datos= "Como estan ustedes?";
+
+            fos.write(datos.getBytes());
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -50,7 +67,7 @@ public class FicherosBinarios {
             int dato;
 
 
-            while ((dato=fis.read())!=-1) System.out.print(dato+" ");
+            while ((dato=fis.read())!=-1) System.out.print(((char)dato));
 
 
 
@@ -65,7 +82,7 @@ public class FicherosBinarios {
     }
 
     private static void leerFichero() {
-        try (DataInputStream in = new DataInputStream(new FileInputStream("src/main/resources/ejemplosBinario/ejemplo.dat"))) {
+        try (DataInputStream in = new DataInputStream(new FileInputStream("src/main/resources/ejemplosBinario/ejemplo2.dat"))) {
 
             Object[] metodos={in.readBoolean(),in.readUTF(),in.readDouble(), in.readInt()};
 
@@ -82,7 +99,7 @@ public class FicherosBinarios {
     }
 
     private static void escribirFichero() {
-        try (DataOutputStream out = new DataOutputStream(new FileOutputStream("src/main/resources/ejemplosBinario/ejemplo.dat"))) {
+        try (DataOutputStream out = new DataOutputStream(new FileOutputStream("src/main/resources/ejemplosBinario/ejemplo2.dat"))) {
 
             out.writeBoolean(getAprobado());
             out.writeUTF(getNombre());
